@@ -1,0 +1,58 @@
+/*.footer{
+    width: 100%;
+    width: 1024px;
+    font-size: 12px;
+}
+*/
+
+.footer{
+    width: 100%;
+    margin-top: 50px;
+    background-color: #5077b2;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+.footer h1{
+    background-color: #5077b2;
+}
+
+.fLists{
+    width: 1024px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    background-color: #5077b2;
+}
+
+.fList{
+    width: 1024 / 3;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    background-color: #5077b2;
+    list-style: none;
+    padding: 0;
+}
+
+.fListItem{
+    margin: 0 auto;
+    position: relative;
+    align-items: center;
+    background-color: #5077b2;
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.fText{
+    background-color: #5077b2;
+}

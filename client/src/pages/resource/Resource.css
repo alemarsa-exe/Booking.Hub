@@ -1,0 +1,95 @@
+.resourceContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.resourceWrapper{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.bookNow{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    border: none;
+    background-color: #3f9bf1;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.rosourceTitle{
+    font-size: 24px;
+}
+
+.resourceImages{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.resourceImgWrapper{
+    width: 70%;
+    justify-content: space-between;
+}
+
+.resourceImg{
+    width: 100%;
+    object-fit: cover;
+}
+
+.resourceDetail{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.resourceDetailText{
+    flex: 3;
+}
+.resourceDesc{
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.resourceDetailPrice{
+    flex:1;
+    background-color: #b9ddff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px;
+}
+
+.resourceDetailPrice>h1{
+    font-size: 18px;
+    color: #555
+}
+
+.resourceDetailPrice>span{
+    font-size: 14px;
+}
+
+.resourceDetailPrice>h2{
+    font-weight: 300;
+}
+
+.resourceDetailPrice>button{
+    border: none;
+    background-color: #3f9bf1;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}

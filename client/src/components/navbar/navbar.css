@@ -1,0 +1,42 @@
+.navbar{
+    height: 50px;
+    /*background-color: #5077b2;*/
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.navContainer{
+    width: 100%;
+    max-width: 1024px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+}
+
+.logo{
+    font-weight: 20;
+}
+
+.navItems{
+    background-color: #ffffff;
+    display: flex;
+}
+
+.logo img{
+    aspect-ratio: 1832/626;
+    width: 120px;
+    height: 38px;
+    max-width: 200;
+    max-height: 80;
+}
+
+.navButton{
+    margin-left: 20px;
+    border: none;
+    padding: 5px 10px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
