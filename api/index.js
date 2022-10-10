@@ -19,7 +19,7 @@ import allRoute from "./routes/all.js"
 const app = express()
 dotenv.config()
 
-const port = 8800
+const port = process.env.PORT
 
 const connect = async () => {
     try {
