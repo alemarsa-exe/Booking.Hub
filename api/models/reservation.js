@@ -36,6 +36,11 @@ const reservationSchema = new mongoose.Schema({
     nowStatus: {
         type: String,
         required: true
+    },
+
+    images: {
+        type:String,
+        required: true
     }
 });
 const Reservation = mongoose.model("reservation", reservationSchema)
