@@ -27,10 +27,10 @@ const reservationSchema = new mongoose.Schema({
         required: true
     },
 
-    userId: {
+    /*userId: {
         type: ObjectId ,
         required: true
-    },
+    },*/
 
 
     nowStatus: {
