@@ -41,7 +41,7 @@ const reservationSchema = new mongoose.Schema({
     images: {
         type:String,
         required: true
-    }
+    }  
 });
 const Reservation = mongoose.model("reservation", reservationSchema)
 //export default mongoose.model("laboratory", labSchema)
