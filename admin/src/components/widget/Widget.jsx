@@ -12,24 +12,24 @@ const Widget = ({ type }) => {
   const amount = 5;
 
   switch (type) {
-    case "user":
-      data = {
-        title: "USERS",
-        isMoney: false,
-        desc: "Cantidad total de usuarios",
-        icon: (
-          <PersonOutlinedIcon
-            className="icon"
-            style={{
-              color: "crimson",
-              backgroundColor: "rgba(255, 0, 0, 0.2)",
-            }}
-          />
-        ),
-      };
-      break;
-    case "order":
-      data = {
+		case "user":
+			data = {
+				title: "USERS",
+				isMoney: false,
+				desc: "Cantidad total de usuarios",
+				icon: (
+					<PersonOutlinedIcon
+						className="icon"
+						style={{
+							color: "crimson",
+							backgroundColor: "rgba(255, 0, 0, 0.2)",
+						}}
+					/>
+				),
+			};
+			break;
+		case "order":
+			data = {
 				title: "LABS",
 				desc: "Cantidad total de laboratorios",
 				icon: (
@@ -42,9 +42,9 @@ const Widget = ({ type }) => {
 					/>
 				),
 			};
-      break;
-    case "earning":
-      data = {
+			break;
+		case "earning":
+			data = {
 				title: "SOFTWARE",
 				isMoney: false,
 				desc: "Cantidad total de software",
@@ -55,9 +55,9 @@ const Widget = ({ type }) => {
 					/>
 				),
 			};
-      break;
-    case "balance":
-      data = {
+			break;
+		case "balance":
+			data = {
 				title: "Devices",
 				desc: "Cantidad total de equipos",
 				icon: (
@@ -70,10 +70,60 @@ const Widget = ({ type }) => {
 					/>
 				),
 			};
-      break;
-    default:
-      break;
-  }
+			break;
+
+			{
+				/* Otros */
+			}
+		case "license":
+			data = {
+				title: "Devices",
+				desc: "Cantidad total de equipos",
+				icon: (
+					<DevicesIcon
+						className="icon"
+						style={{
+							backgroundColor: "rgba(128, 0, 128, 0.2)",
+							color: "purple",
+						}}
+					/>
+				),
+			};
+			break;
+		case "totalResources":
+			data = {
+				title: "Devices",
+				desc: "Cantidad total de equipos",
+				icon: (
+					<DevicesIcon
+						className="icon"
+						style={{
+							backgroundColor: "rgba(128, 0, 128, 0.2)",
+							color: "purple",
+						}}
+					/>
+				),
+			};
+			break;
+		case "totalReservations":
+			data = {
+				title: "Devices",
+				desc: "Cantidad total de equipos",
+				icon: (
+					<DevicesIcon
+						className="icon"
+						style={{
+							backgroundColor: "rgba(128, 0, 128, 0.2)",
+							color: "purple",
+						}}
+					/>
+				),
+			};
+			break;
+
+		default:
+			break;
+	}
 
   return (
     <div className="widget">

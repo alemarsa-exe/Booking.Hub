@@ -4,6 +4,7 @@ import dotenv from "dotenv"
 import mongoose from "mongoose"
 import cookieParser from "cookie-parser"
 import cors from "cors"
+import nodemailer from "nodemailer"
 
 //Routes
 import authRoute from "./routes/auth.js"

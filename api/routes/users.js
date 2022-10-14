@@ -1,6 +1,6 @@
 import express from "express";
 import verify from "jsonwebtoken";
-import { deleteUser, getAllUsers, getUser, updateUser} from "../controllers/userController.js";
+import { deleteUser, getAllUsers, getUser, updateUser, verifyEmail} from "../controllers/userController.js";
 import { createError } from "../utils/error.js";
 import { verifyAdmin, verifyToken, verifyUser } from "../utils/verifyToken.js";
 
@@ -37,5 +37,7 @@ router.get("/:id", getUser);
 //GET ALL
 //router.get("/", verifyAdmin, getAllUsers);
 router.get("/", getAllUsers);
+
+router.get("/verify/email", verifyEmail);
 
 export default router

@@ -51,3 +51,22 @@ export const getAllUsers = async (req, res, next) => {
         next(err)
     }
 }
+
+export const verifyEmail = async (req, res, next) => {
+    const token = req.query.token
+    try{
+        console.log(token)
+        const user = await User.findOne({ emailToken: token })
+        if(user){
+            user.emailToken = "null"
+            user.status = true
+            await user.save()
+            res.send("Email verificado")
+        } else {
+            console.log("Email no verificado")
+            res.send("Email no verificado");
+        }
+    }catch (err) {
+        next(err)
+    }
+}

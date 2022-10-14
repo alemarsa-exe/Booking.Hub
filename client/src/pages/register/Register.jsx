@@ -38,6 +38,20 @@ const Register = () => {
 				<div className="lContainer">
 					<input
 						type="text"
+						placeholder="Nombre"
+						id="name"
+						onChange={handleChange}
+						className="lInput"
+					></input>
+					<input
+						type="text"
+						placeholder="Apellido"
+						id="surname"
+						onChange={handleChange}
+						className="lInput"
+					></input>
+					<input
+						type="text"
 						placeholder="Correo"
 						id="email"
 						onChange={handleChange}
@@ -45,13 +59,20 @@ const Register = () => {
 					></input>
 					<input
 						type="password"
-						placeholder="password"
+						placeholder="Contraseña"
+						id="password"
+						onChange={handleChange}
+						className="lInput"
+					></input>
+					<input
+						type="password"
+						placeholder="Confirmar contraseña"
 						id="password"
 						onChange={handleChange}
 						className="lInput"
 					></input>
 					<button disabled={loading} onClick={handleLogin} className="lButton">
-						Iniciar Sesión
+						Registrarse
 					</button>
 					{error && <span>{error.message}</span>}
 				</div>

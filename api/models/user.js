@@ -36,6 +36,11 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         default: "User"
+    },
+
+    emailToken: {
+        type: String,
+        required: true
     }
 },
     { timestamps: true }

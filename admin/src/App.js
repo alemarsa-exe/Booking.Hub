@@ -59,6 +59,14 @@ function App() {
 								}
 							/>
 							<Route
+								path="edit"
+								element={
+									<ProtectedRoute>
+										<Single />
+									</ProtectedRoute>
+								}
+							/>
+							<Route
 								path="new"
 								element={
 									<ProtectedRoute>

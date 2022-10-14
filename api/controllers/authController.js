@@ -2,9 +2,25 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"
 import { createError } from "../utils/error.js";
 import User from "../models/user.js";
+import nodemailer from "nodemailer"
+import user from "../models/user.js";
+import crypto from "crypto";
 
 
 // -----------Users------------
+
+
+var transporter = nodemailer.createTransport({
+	service: "gmail",
+	auth: {
+		user: "booking.hub.Soporte@gmail.com",
+		pass: "rlohhfgzuywdnzjp",
+	},
+	tls: {
+		rejectUnauthorized: false,
+	},
+});
+
 
 //CREATE
 export const createUser = async (req, res, next) => {
@@ -26,11 +42,31 @@ export const createUser = async (req, res, next) => {
             isAdmin: req.body.isAdmin,
             role: req.body.role,*/
             ...req.body,
-            password: hash
+            password: hash,
+            emailToken: crypto.randomBytes(32).toString('hex'),
         });
+
+        var mailOptions = {
+            from: ' "Verifica tu email" <booking.hub.Soporte@gmail.com>',
+            to: req.body.email,
+            subject: 'Booking.Hub -verifica tu email',
+            html: ` <h2>  ¡${newUser.name}! Gracias por registrarte</h2>
+                    <h4> Por favor verifica tu dirección de correo electrónico para continuar </h4>
+                    <a href="http://0.0.0.0:8800/api/users/verify/email?token=${newUser.emailToken}">Verifica tu email</a>`
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error){
+                console.log(error)
+            }
+            else{
+                console.log("Verificación enviada a tu correo")
+            }
+        })
 
         await newUser.save()
         res.status(200).send("User has been created.")
+        //res.redirect('/login')
     } catch (err) {
         next(err)
     }
@@ -45,7 +81,7 @@ export const loginUser = async (req, res, next) => {
 
         const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password)
         if (!isPasswordCorrect) return next(createError(400, "Wrong password or username"))
-        //if(!user.status) return next(createError(400, "Please confirm your email"))
+        if(!user.status) return next(createError(400, "Please confirm your email"))
 
         const token = jwt.sign({id: user._id, isAdmin: user.isAdmin}, process.env.JWT)
 
