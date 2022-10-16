@@ -73,6 +73,7 @@ const Header = ({ type }) => {
 							<option value="software">software</option>
 							<option value="devices">devices</option>
 							<option value="labs">labs</option>
+							<option value="license">license</option>
 						</select>
 					</div>
 					<div className="headerSearchItem">
