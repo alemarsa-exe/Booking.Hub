@@ -16,7 +16,7 @@ const Resource = () => {
 		},
 	];
 
-    
+    const [categoria, setCategoria] = useState(location.state.categoria);
 
 	const location = useLocation();
 	const locationString = location.pathname.toString();
@@ -25,8 +25,9 @@ const Resource = () => {
 	const { startDate } = useContext(SearchContext);
 
 	// api url
-	const api_url = "/labs/find/"
-    const newUrl = api_url.concat(id).toString()
+    const cat = "/" + categoria
+	const find = cat.concat("/find")
+    const newUrl = find.concat(id).toString()
 
     
     console.log(newUrl)
