@@ -30,3 +30,18 @@
     background-color: #0071c28c;
     cursor: not-allowed;
 }
+
+p {
+    color: rgb(220, 74, 74);
+    font-weight: 500;
+}
+
+h5 {
+    padding-top: 5px;
+    margin-bottom: -5px;
+}
+
+.inicia{
+    color:#0071c2;
+    text-decoration:none;
+}

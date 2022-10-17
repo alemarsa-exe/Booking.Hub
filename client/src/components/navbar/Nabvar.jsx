@@ -26,7 +26,9 @@ const Navbar = () => {
 
 						{email ? email.email : (
 							<div className="navItems" style={{"display":"flex"}}> 
-								<button className="navButton">REGÍSTRATE</button>
+								<Link to="/register">
+									<button className="navButton">REGÍSTRATE</button>
+								</Link>
                                 <Link to="/login">
 								    <button className="navButton">INICIA SESIÓN</button>
                                 </Link>

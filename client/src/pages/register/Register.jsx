@@ -1,17 +1,37 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import "./Register.css";
-import axios from "axios"
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Nabvar";
 
+
+import { useRef } from "react";
+import {
+	faCheck,
+	faTimes,
+	faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Register = () => {
+	
+	const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+	const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+
+
 	const [credential, setCredential] = useState({
+		name: undefined,
+		surname: undefined,
 		email: undefined,
 		password: undefined,
 	});
+	const [errors, setErrors] = useState({})
+	const [isSubmit, setIsSubmit] = useState(false)
+	const [mensaje, setMensaje] = useState("")
 
-	const { loading, error, dispatch } = useContext(AuthContext);
+	const [validEmail, setValidEmail] = useState(false)
+	const [validPassword, setValidPassword] = useState(false)
 
 	const navigate = useNavigate()
 
@@ -19,23 +39,68 @@ const Register = () => {
         setCredential((prev) => ({ ...prev, [e.target.id]: e.target.value }))
     }
 
-    const handleLogin = async e => {
+    const handleRegister = async e => {
         e.preventDefault()
-        dispatch({ type: "LOGIN_START" });
+		setErrors(validate(credential))
+		setIsSubmit(true)
         try{
-            const res = await axios.post("/auth/register", credential)
-            dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-			navigate("/")
+				const response = await axios.post("/auth/register", credential)
+				console.log("response")
+				console.log(JSON.stringify(response))
+				
+
+				navigate("/login");
+			
         }catch (err){
-            dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+            console.log(err)
         }
     }
+
+	useEffect(()=> {
+		console.log(errors)
+		if(Object.keys(errors).length === 0 && isSubmit){
+			console.log(errors)
+		}
+	}, [errors])
+
+	//Email
+	useEffect(()=> {
+		const result = regex.test(credential.email);
+		console.log("resultado de email")
+		console.log(result)
+		setValidEmail(result)
+	},[validEmail] )
+
+	const validate = (values) => {
+		const errors = {}
+		if(!values.name) {
+			errors.name = "El nombre es requerido"
+		}
+		if(!values.surname) {
+			errors.surname = "El apellido es requerido"
+		}
+		if(!values.email) {
+			errors.email = "El correo es requerido"
+		} else if (!regex.test(values.email)) {
+			errors.email = "Ingresa un correo válido";
+		}
+		if(!values.password) {
+			errors.password = "La contraseña es requerida"
+		} else if (!PWD_REGEX.test(values.password)) {
+			errors.password = "La contraseña debe ser válida con una mínuscula, mayúscula, número y caracter especial"
+		}
+		if(values.password != values.password2) {
+			errors.password2 = "Las contraseña deben coincidir"
+		}
+		return errors
+	}
 
 	return (
 		<div>
 			<Navbar />
 			<div className="login">
 				<div className="lContainer">
+					<h5>Nombre</h5>
 					<input
 						type="text"
 						placeholder="Nombre"
@@ -43,6 +108,9 @@ const Register = () => {
 						onChange={handleChange}
 						className="lInput"
 					></input>
+					<p>{errors.name}</p>
+
+					<h5>Apellido</h5>
 					<input
 						type="text"
 						placeholder="Apellido"
@@ -50,6 +118,9 @@ const Register = () => {
 						onChange={handleChange}
 						className="lInput"
 					></input>
+					<p>{errors.surname}</p>
+
+					<h5>Correo</h5>
 					<input
 						type="text"
 						placeholder="Correo"
@@ -57,6 +128,9 @@ const Register = () => {
 						onChange={handleChange}
 						className="lInput"
 					></input>
+					<p>{errors.email}</p>
+
+					<h5>Contraseña</h5>
 					<input
 						type="password"
 						placeholder="Contraseña"
@@ -64,22 +138,32 @@ const Register = () => {
 						onChange={handleChange}
 						className="lInput"
 					></input>
+					<p>{errors.password}</p>
+
+					<h5>Confirmar contraseña</h5>
 					<input
 						type="password"
 						placeholder="Confirmar contraseña"
-						id="password"
+						id="password2"
 						onChange={handleChange}
 						className="lInput"
 					></input>
-					<button disabled={loading} onClick={handleLogin} className="lButton">
+					<p>{errors.password2}</p>
+					<button onClick={handleRegister} className="lButton">
 						Registrarse
 					</button>
-					{error && <span>{error.message}</span>}
+					<h6>
+						¿Ya tienes una cuenta?
+						<Link to="/login">
+							<span className="inicia">Inicia Sesión</span>
+						</Link>
+					</h6>
+					{mensaje && <span>{mensaje}</span>}
 				</div>
 			</div>
 		</div>
 	);
+
 };
 
-
-export default Register
+export default Register;

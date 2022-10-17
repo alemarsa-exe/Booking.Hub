@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import "./Login.css";
 import axios from "axios"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Nabvar";
 
 const Login = () => {
@@ -53,6 +53,12 @@ const Login = () => {
 					<button disabled={loading} onClick={handleLogin} className="lButton">
 						Iniciar Sesión
 					</button>
+					<h6>
+						¿No estás registrado?
+						<Link to="/register">
+							<span className="inicia">Regístrate</span>
+						</Link>
+					</h6>
 					{error && <span>{error.message}</span>}
 				</div>
 			</div>
