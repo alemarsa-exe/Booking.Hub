@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 
 //CREATE
 //router.post("/", verifyAdmin, createLab);
-router.post("/", verifyAdmin, createLab);
+router.post("/", createLab);
 
 
 //UPDATE

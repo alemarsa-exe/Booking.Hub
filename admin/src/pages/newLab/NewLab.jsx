@@ -16,9 +16,21 @@ const NewLab = () => {
 
 	const handleClick = async (e) => {
 		e.preventDefault();
+		const data = new FormData();
+		data.append("file", file);
+		data.append("upload_preset", "upload");
 		try {
+			const uploadRes = await axios.post(
+				"https://api.cloudinary.com/v1_1/dyzekm6m8/image/upload",
+				data
+			);
+			console.log(uploadRes.data);
+
+			const { url } = uploadRes.data;
+
 			const newLab = {
 				...info,
+				images: url
 			};
 			await axios.post("/labs", newLab);
 		} catch (err) {
@@ -26,6 +38,7 @@ const NewLab = () => {
 		}
 	};
 
+	console.log(info)
 	return (
 		<div className="new">
 			<Sidebar />
@@ -54,7 +67,7 @@ const NewLab = () => {
 								<input
 									type="file"
 									id="file"
-									onChange={(e) => setFile(e.target.files[0])}
+									onChange={(e) => setFile(e.target.files)}
 									style={{ display: "none" }}
 								/>
 							</div>

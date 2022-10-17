@@ -21,7 +21,7 @@ const Navbar = () => {
 						<Link to="/">
 							<button className="navButton">INICIO</button>
 						</Link>
-						<button className="navButton">EXPLORA</button>
+						{/*<button className="navButton">EXPLORA</button>*/}
 						<button className="navButton">CONTÁCTANOS</button>
 
 						{email ? email.email : (

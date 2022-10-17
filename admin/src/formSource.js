@@ -79,13 +79,7 @@ export const userInputs = [
       label: "type",
       type: "text",
       placeholder: "PitchRoom",
-    },
-    {
-      id: "images",
-      label: "Images",
-      type: "text",
-      placeholder: "https://something",
-    },
+    }
   ];
 
 

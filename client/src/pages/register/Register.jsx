@@ -53,6 +53,7 @@ const Register = () => {
 			
         }catch (err){
             console.log(err)
+			setMensaje("Ingresa datos válidos")
         }
     }
 
@@ -100,6 +101,7 @@ const Register = () => {
 			<Navbar />
 			<div className="login">
 				<div className="lContainer">
+					{mensaje && <h3>{mensaje}</h3>}
 					<h5>Nombre</h5>
 					<input
 						type="text"
@@ -108,7 +110,7 @@ const Register = () => {
 						onChange={handleChange}
 						className="lInput"
 					></input>
-					<p>{errors.name}</p>
+					<p className="p">{errors.name}</p>
 
 					<h5>Apellido</h5>
 					<input
@@ -118,7 +120,7 @@ const Register = () => {
 						onChange={handleChange}
 						className="lInput"
 					></input>
-					<p>{errors.surname}</p>
+					<p className="p">{errors.surname}</p>
 
 					<h5>Correo</h5>
 					<input
@@ -128,7 +130,7 @@ const Register = () => {
 						onChange={handleChange}
 						className="lInput"
 					></input>
-					<p>{errors.email}</p>
+					<p className="p">{errors.email}</p>
 
 					<h5>Contraseña</h5>
 					<input
@@ -138,7 +140,7 @@ const Register = () => {
 						onChange={handleChange}
 						className="lInput"
 					></input>
-					<p>{errors.password}</p>
+					<p className="p">{errors.password}</p>
 
 					<h5>Confirmar contraseña</h5>
 					<input
@@ -148,7 +150,7 @@ const Register = () => {
 						onChange={handleChange}
 						className="lInput"
 					></input>
-					<p>{errors.password2}</p>
+					<p className="p">{errors.password2}</p>
 					<button onClick={handleRegister} className="lButton">
 						Registrarse
 					</button>
@@ -158,7 +160,6 @@ const Register = () => {
 							<span className="inicia">Inicia Sesión</span>
 						</Link>
 					</h6>
-					{mensaje && <span>{mensaje}</span>}
 				</div>
 			</div>
 		</div>
