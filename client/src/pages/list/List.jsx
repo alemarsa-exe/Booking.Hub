@@ -1,14 +1,15 @@
 import "./List.css"
 import Header from "../../components/header/Header.jsx";
 import Navbar from "../../components/navbar/Nabvar.jsx";
-import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useContext, useState } from "react";
 import { format } from "date-fns";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { setHours, setMinutes } from "date-fns";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFecth";
+import { SearchContext } from "../../context/SearchContext";
 
 
 const List = () => {
@@ -23,6 +24,8 @@ const List = () => {
     {/*const { data, loading, error, refetch } = useFetch(`/labs?cities=${busqueda}`);*/}
     const  { data, loading, error, reFetch } = useFetch(`/${categoria}`)
 
+    const { dispatch } = useContext(SearchContext);
+
     const handleClick = () => {
         reFetch()
     }
@@ -30,6 +33,7 @@ const List = () => {
     const handleSelect = (e) => {
 		setCategoria(e.target.value)
 	}
+    
 
     return (
         <div> 
@@ -70,7 +74,7 @@ const List = () => {
                                 /> 
                             )}
                         </div>
-                        <button onClick={handleClick}>Buscar</button>
+                        <button onClick={handleClick} >Buscar</button>
                     </div>
                     <div className="listResult">
                         {loading ? "loading" : <>

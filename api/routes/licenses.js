@@ -19,7 +19,7 @@ router.delete("/:id", deleteLicense);
 
 
 //GET
-router.get("/:id", getLicense);
+router.get("/find/:id", getLicense);
 
 
 //GET ALL

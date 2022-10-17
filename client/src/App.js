@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/resources" element={<List/>}></Route>
-        <Route path="/resources/:id" element={<Resource/>}></Route>
+        <Route path="/resources/:categoria/:id" element={<Resource/>}></Route>
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
       </Routes>
@@ -24,3 +24,47 @@ function App() {
 }
 
 export default App;
+
+/*
+const InputArea = (props) => {
+  const handleChange = (e) => props.handleInputValue(e.target.value);
+
+  return (
+    <div className="column">
+      <div className="col-body">
+        <textarea
+          id="editor"
+          placeholder="Enter text here"
+          onChange={handleChange}
+        ></textarea>
+      </div>
+    </div>
+  );
+};
+
+const DisplayArea = (props) => (
+  <div className="column">
+    <div className="col-body">
+      <div id="preview">{props.inputValue}</div>
+    </div>
+  </div>
+);
+
+class App extends React.Component {
+  state = {
+    inputValue: "Initial Value",
+  };
+
+  handleInputValue = (inputValue) => this.setState({ inputValue });
+
+  render() {
+    return (
+      <div id="wrapper" className="App">
+        <DisplayArea inputValue={this.state.inputValue} />
+        <InputArea handleInputValue={this.handleInputValue} />
+      </div>
+    );
+  }
+}
+
+*/

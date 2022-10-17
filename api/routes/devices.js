@@ -18,7 +18,7 @@ router.delete("/:id", deleteDevice);
 
 
 //GET
-router.get("/:id", getDevice);
+router.get("/find/:id", getDevice);
 
 
 //GET ALL
