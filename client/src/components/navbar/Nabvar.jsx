@@ -21,8 +21,12 @@ const Navbar = () => {
 						<Link to="/">
 							<button className="navButton">INICIO</button>
 						</Link>
-						{/*<button className="navButton">EXPLORA</button>*/}
-						<button className="navButton">CONTÁCTANOS</button>
+						<Link to="/about-us">
+							<button className="navButton">NOSOTROS</button>
+						</Link>
+						<Link to="/contact">
+							<button className="navButton">CONTÁCTANOS</button>
+						</Link>
 
 						{email ? email.email : (
 							<div className="navItems" style={{"display":"flex"}}> 

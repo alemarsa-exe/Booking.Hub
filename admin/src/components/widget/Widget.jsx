@@ -4,28 +4,39 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import TerminalIcon from "@mui/icons-material/Terminal";
 import DevicesIcon from "@mui/icons-material/Devices";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import PaymentIcon from "@mui/icons-material/Payment";
+import EventIcon from "@mui/icons-material/Event";
 import axios from "axios"
 import useFetch from "../../hooks/useFecth";
 
 const Widget = ({ type }) => {
-  let data;
+	let data;
 
-  const amount = 5;
+	const amount = 5;
 
-  //USERS
-  const users = useFetch("/users")
-  const numUsers = users.data.length
-  //LABS
-  const labs = useFetch("/labs")
-  const numLabs = labs.data.length
-  //SOFTWARE
-  const softwares = useFetch("/software")
-  const numSoftwares = softwares.data.length
-  //DEVICES
-  const devices = useFetch("/software")
-  const numDevices = devices.data.length
+	//USERS
+	const users = useFetch("/users");
+	const numUsers = users.data.length;
+	//LABS
+	const labs = useFetch("/labs");
+	const numLabs = labs.data.length;
+	//SOFTWARE
+	const softwares = useFetch("/software");
+	const numSoftwares = softwares.data.length;
+	//DEVICES
+	const devices = useFetch("/software");
+	const numDevices = devices.data.length;
+	//DEVICES
+	const licenses = useFetch("/license");
+	const numLicences = licenses.data.length;
+	//NUM RESOURCES
+	const numResources = numLabs + numSoftwares + numDevices + numLicences;
+	//NUM RESERVATIONS
+	const reservations = useFetch("/reservation");
+	const numReservations = reservations.data.length;
 
-  switch (type) {
+	switch (type) {
 		case "user":
 			data = {
 				title: "USERS",
@@ -87,14 +98,14 @@ const Widget = ({ type }) => {
 			break;
 		case "license":
 			data = {
-				title: "License",
+				title: "LICENSE",
 				desc: "Cantidad total de licencias",
 				icon: (
-					<DevicesIcon
+					<PaymentIcon
 						className="icon"
 						style={{
-							backgroundColor: "rgba(128, 0, 128, 0.2)",
-							color: "purple",
+							backgroundColor: "#B1E1FF",
+							color: "#1F4690",
 						}}
 					/>
 				),
@@ -102,14 +113,14 @@ const Widget = ({ type }) => {
 			break;
 		case "totalResources":
 			data = {
-				title: "Devices",
-				desc: "Cantidad total de equipos",
+				title: "RESOURCES",
+				desc: "Cantidad total de recursos",
 				icon: (
-					<DevicesIcon
+					<InventoryIcon
 						className="icon"
 						style={{
-							backgroundColor: "rgba(128, 0, 128, 0.2)",
-							color: "purple",
+							backgroundColor: "#D7C0AE",
+							color: "#665A48",
 						}}
 					/>
 				),
@@ -117,14 +128,14 @@ const Widget = ({ type }) => {
 			break;
 		case "totalReservations":
 			data = {
-				title: "Devices",
-				desc: "Cantidad total de equipos",
+				title: "RESERVATIONS",
+				desc: "Cantidad total de reservaciones",
 				icon: (
-					<DevicesIcon
+					<EventIcon
 						className="icon"
 						style={{
-							backgroundColor: "rgba(128, 0, 128, 0.2)",
-							color: "purple",
+							backgroundColor: "#EAEAEA",
+							color: "#748DA6",
 						}}
 					/>
 				),
@@ -135,7 +146,7 @@ const Widget = ({ type }) => {
 			break;
 	}
 
-  return (
+	return (
 		<div className="widget">
 			{data.title === "USERS" && (
 				<div className="left">
@@ -169,6 +180,33 @@ const Widget = ({ type }) => {
 					<span className="title">{data.title}</span>
 					<span className="counter">
 						{data.isMoney && "$"} {numDevices}
+					</span>
+					<span className="">{data.desc}</span>
+				</div>
+			)}
+			{data.title === "LICENSE" && (
+				<div className="left">
+					<span className="title">{data.title}</span>
+					<span className="counter">
+						{data.isMoney && "$"} {numLicences}
+					</span>
+					<span className="">{data.desc}</span>
+				</div>
+			)}
+			{data.title === "RESOURCES" && (
+				<div className="left">
+					<span className="title">{data.title}</span>
+					<span className="counter">
+						{data.isMoney && "$"} {numResources}
+					</span>
+					<span className="">{data.desc}</span>
+				</div>
+			)}
+			{data.title === "RESERVATIONS" && (
+				<div className="left">
+					<span className="title">{data.title}</span>
+					<span className="counter">
+						{data.isMoney && "$"} {numReservations}
 					</span>
 					<span className="">{data.desc}</span>
 				</div>

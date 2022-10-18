@@ -51,6 +51,8 @@
     margin-bottom: 10px;
     color: white;
     cursor: pointer;
+    display: grid;
+    justify-content: center;
 }
 
 .fText{
