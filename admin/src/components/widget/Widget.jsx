@@ -4,12 +4,26 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import TerminalIcon from "@mui/icons-material/Terminal";
 import DevicesIcon from "@mui/icons-material/Devices";
+import axios from "axios"
+import useFetch from "../../hooks/useFecth";
 
 const Widget = ({ type }) => {
   let data;
 
-  //temporary
   const amount = 5;
+
+  //USERS
+  const users = useFetch("/users")
+  const numUsers = users.data.length
+  //LABS
+  const labs = useFetch("/labs")
+  const numLabs = labs.data.length
+  //SOFTWARE
+  const softwares = useFetch("/software")
+  const numSoftwares = softwares.data.length
+  //DEVICES
+  const devices = useFetch("/software")
+  const numDevices = devices.data.length
 
   switch (type) {
 		case "user":
@@ -28,7 +42,7 @@ const Widget = ({ type }) => {
 				),
 			};
 			break;
-		case "order":
+		case "labs":
 			data = {
 				title: "LABS",
 				desc: "Cantidad total de laboratorios",
@@ -43,7 +57,7 @@ const Widget = ({ type }) => {
 				),
 			};
 			break;
-		case "earning":
+		case "software":
 			data = {
 				title: "SOFTWARE",
 				isMoney: false,
@@ -56,9 +70,9 @@ const Widget = ({ type }) => {
 				),
 			};
 			break;
-		case "balance":
+		case "devices":
 			data = {
-				title: "Devices",
+				title: "DEVICES",
 				desc: "Cantidad total de equipos",
 				icon: (
 					<DevicesIcon
@@ -71,14 +85,10 @@ const Widget = ({ type }) => {
 				),
 			};
 			break;
-
-			{
-				/* Otros */
-			}
 		case "license":
 			data = {
-				title: "Devices",
-				desc: "Cantidad total de equipos",
+				title: "License",
+				desc: "Cantidad total de licencias",
 				icon: (
 					<DevicesIcon
 						className="icon"
@@ -126,22 +136,51 @@ const Widget = ({ type }) => {
 	}
 
   return (
-    <div className="widget">
-      <div className="left">
-        <span className="title">{data.title}</span>
-        <span className="counter">
-          {data.isMoney && "$"} {amount}
-        </span>
-        <span className="">{data.desc}</span>
-      </div>
-      <div className="right">
-        <div className="percentage positive">
-          <KeyboardArrowUpIcon />
-        </div>
-        {data.icon}
-      </div>
-    </div>
-  );
+		<div className="widget">
+			{data.title === "USERS" && (
+				<div className="left">
+					<span className="title">{data.title}</span>
+					<span className="counter">
+						{data.isMoney && "$"} {numUsers}
+					</span>
+					<span className="">{data.desc}</span>
+				</div>
+			)}
+			{data.title === "LABS" && (
+				<div className="left">
+					<span className="title">{data.title}</span>
+					<span className="counter">
+						{data.isMoney && "$"} {numLabs}
+					</span>
+					<span className="">{data.desc}</span>
+				</div>
+			)}
+			{data.title === "SOFTWARE" && (
+				<div className="left">
+					<span className="title">{data.title}</span>
+					<span className="counter">
+						{data.isMoney && "$"} {numSoftwares}
+					</span>
+					<span className="">{data.desc}</span>
+				</div>
+			)}
+			{data.title === "DEVICES" && (
+				<div className="left">
+					<span className="title">{data.title}</span>
+					<span className="counter">
+						{data.isMoney && "$"} {numDevices}
+					</span>
+					<span className="">{data.desc}</span>
+				</div>
+			)}
+			<div className="right">
+				<div className="percentage positive">
+					<KeyboardArrowUpIcon />
+				</div>
+				{data.icon}
+			</div>
+		</div>
+	);
 };
 
 export default Widget;

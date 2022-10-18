@@ -14,21 +14,21 @@ const Home = () => {
 				<Navbar />
 				<div className="widgets">
 					<Widget type="user" />
-					<Widget type="order" />
-					<Widget type="earning" />
-					<Widget type="balance" />
+					<Widget type="labs" />
+					<Widget type="software" />
+					<Widget type="devices" />
 				</div>
 				<div className="widgets">
 					<Widget type="user" />
-					<Widget type="order" />
-					<Widget type="earning" />
-					<Widget type="balance" />
+					<Widget type="labs" />
+					<Widget type="software" />
+					<Widget type="devices" />
 				</div>
 				<div className="widgets">
 					<Widget type="user" />
-					<Widget type="order" />
-					<Widget type="earning" />
-					<Widget type="balance" />
+					<Widget type="labs" />
+					<Widget type="software" />
+					<Widget type="devices" />
 				</div>
 				{/*
         <div className="charts">
