@@ -52,8 +52,7 @@ export const createUser = async (req, res, next) => {
 					subject: "Booking.Hub -verifica tu email",
 					html: ` <h2>  ¡${newUser.name}! Gracias por registrarte</h2>
                     <h4> Por favor verifica tu dirección de correo electrónico para continuar </h4>
-                    <a href="http://20.197.11.142
-                    :8800/api/users/verify/email?token=${newUser.emailToken}">Verifica tu email</a>`,
+                    <a href="http://20.197.11.142:8800/api/users/verify/email?token=${newUser.emailToken}">Verifica tu email</a>`,
 				};
 
         transporter.sendMail(mailOptions, function(error, info){
