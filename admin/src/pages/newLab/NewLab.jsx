@@ -67,7 +67,7 @@ const NewLab = () => {
 								<input
 									type="file"
 									id="file"
-									onChange={(e) => setFile(e.target.files)}
+									onChange={(e) => setFile(e.target.files[0])}
 									style={{ display: "none" }}
 								/>
 							</div>

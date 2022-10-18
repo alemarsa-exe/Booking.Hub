@@ -56,3 +56,12 @@
 .fText{
     background-color: #5077b2;
 }
+
+.footerLogo{
+    display: block;
+    max-width: 230px;
+    max-height: 95px;
+    width: auto;
+    height: auto;
+    cursor:default;
+}

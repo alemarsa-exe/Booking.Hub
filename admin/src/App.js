@@ -10,9 +10,17 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import { Navigate } from "react-router-dom";
-import { labColumns, userColumns, reservationColumns } from "./datatablesource";
+import {
+	labColumns,
+	userColumns,
+	reservationColumns,
+	softwareColumns,
+	devicesColumns,
+} from "./datatablesource";
 import NewLab from "./pages/newLab/NewLab";
 import NewReservation from "./pages/newReservation/NewReservation";
+import NewDevice from "./pages/newDevice/NewDevice";
+import NewSoftware from "./pages/newSoftware/NewSoftware";
 
 function App() {
 	const { darkMode } = useContext(DarkModeContext);
@@ -89,7 +97,45 @@ function App() {
 								path="new"
 								element={
 									<ProtectedRoute>
-										<NewLab/>
+										<NewLab />
+									</ProtectedRoute>
+								}
+							/>
+						</Route>
+						<Route path="software">
+							<Route index element={<List columns={softwareColumns} />} />
+							<Route
+								path=":productId"
+								element={
+									<ProtectedRoute>
+										<Single />
+									</ProtectedRoute>
+								}
+							/>
+							<Route
+								path="new"
+								element={
+									<ProtectedRoute>
+										<NewSoftware />
+									</ProtectedRoute>
+								}
+							/>
+						</Route>
+						<Route path="devices">
+							<Route index element={<List columns={devicesColumns} />} />
+							<Route
+								path=":productId"
+								element={
+									<ProtectedRoute>
+										<Single />
+									</ProtectedRoute>
+								}
+							/>
+							<Route
+								path="new"
+								element={
+									<ProtectedRoute>
+										<NewDevice />
 									</ProtectedRoute>
 								}
 							/>
@@ -108,7 +154,7 @@ function App() {
 								path="new"
 								element={
 									<ProtectedRoute>
-										<NewReservation/>
+										<NewReservation />
 									</ProtectedRoute>
 								}
 							/>

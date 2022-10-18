@@ -13,4 +13,6 @@
 
 body  {
     background-color: #f7f6f6;
+    overflow-x: hidden;
 }
+

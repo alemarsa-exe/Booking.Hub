@@ -45,42 +45,110 @@ export const userInputs = [
   export const labsInputs = [
     {
       id: "name",
-      label: "name",
+      label: "Name",
       type: "text",
-      placeholder: "Apple Macbook Pro",
+      placeholder: "Sala de IoT",
     },
     {
       id: "capacity",
-      label: "capacity",
+      label: "Capacity",
       type: "text",
-      placeholder: "Capacity",
+      placeholder: "12",
     },
     {
       id: "location",
-      label: "location",
+      label: "Location",
       type: "text",
-      placeholder: "Location",
+      placeholder: "A-201",
     },
     {
       id: "availableTime",
-      label: "timeAvailable",
+      label: "Time Available",
       type: "number",
-      placeholder: "12",
+      placeholder: "45",
     },
     
     {
       id: "description",
-      label: "description",
+      label: "Description",
       type: "text",
-      placeholder: "100",
+      placeholder: "Una sala...",
     },
     {
       id: "type",
-      label: "type",
+      label: "Type",
       type: "text",
       placeholder: "PitchRoom",
     }
   ];
+
+  export const deviceInputs = [
+		{
+			id: "name",
+			label: "Name",
+			type: "text",
+			placeholder: "Macbook Pro",
+		},
+		{
+			id: "brand",
+			label: "Brand",
+			type: "text",
+			placeholder: "Apple",
+		},
+		{
+			id: "model",
+			label: "Model",
+			type: "text",
+			placeholder: "3280",
+		},
+		{
+			id: "location",
+			label: "Location",
+			type: "text",
+			placeholder: "A-201",
+		},
+
+		{
+			id: "portable",
+			label: "Portable",
+			type: "text",
+			placeholder: "false",
+		},
+		{
+			id: "description",
+			label: "Description",
+			type: "text",
+			placeholder: "Una computadora...",
+		},
+	];
+
+  export const softwareInputs = [
+		{
+			id: "name",
+			label: "Name",
+			type: "text",
+			placeholder: "Adobe Photoshop",
+		},
+		{
+			id: "version",
+			label: "Version",
+			type: "text",
+			placeholder: "2022.10.1",
+		},
+		{
+			id: "expireDate",
+			label: "Expire Date",
+			type: "number",
+			placeholder: "365",
+		},
+		{
+			id: "description",
+			label: "Description",
+			type: "text",
+			placeholder: "A-201",
+		},
+
+	];
 
 
   export const reservationInputs = [

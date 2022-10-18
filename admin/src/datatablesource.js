@@ -27,32 +27,31 @@ export const userColumns = [
   
 ];
 export const softwareColumns = [
-  { field: "_id", headerName: "ID", width: 70 },
+  { field: "_id", headerName: "ID", width: 230 },
   
   {
     field: "name",
     headerName: "Name",
-    width: 100,
+    width: 150,
   },
-
-  {
-    field: "description",
-    headerName: "Name",
-    width: 200,
-  },
-
+  
   {
     field: "version",
     headerName: "Version",
-    width: 100,
+    width: 140,
   },
-
+  
   {
     field: "expireDate",
     headerName: "Expire Date",
-    width: 100,
-  }
+    width: 130,
+  },
   
+  {
+    field: "description",
+    headerName: "Description",
+    width: 230,
+  },
 ];
 
 //Labs
@@ -90,22 +89,22 @@ export const labColumns = [
   
 ];
 export const devicesColumns = [
-  { field: "_id", headerName: "ID", width: 70 },
+  { field: "_id", headerName: "ID", width: 230 },
   
   {
     field: "name",
     headerName: "Name",
-    width: 100,
+    width: 150,
   },
   {
     field: "brand",
     headerName: "Brand",
-    width: 100,
+    width: 120,
   },
   {
     field: "model",
     headerName: "Model",
-    width: 100,
+    width: 120,
   },
   {
     field: "location",
@@ -116,7 +115,7 @@ export const devicesColumns = [
   {
     field: "description",
     headerName: "Description",
-    width: 100,
+    width: 200,
   }
   
 ];

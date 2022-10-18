@@ -3,6 +3,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import DevicesIcon from "@mui/icons-material/Devices";
 import TerminalIcon from "@mui/icons-material/Terminal";
+import EventIcon from "@mui/icons-material/Event";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
@@ -62,7 +63,7 @@ const Sidebar = () => {
 					</Link>
 					<Link to="/reservation" style={{ textDecoration: "none" }}>
 						<li>
-							<DevicesIcon className="icon" />
+							<EventIcon className="icon" />
 							<span>Reservation</span>
 						</li>
 					</Link>
