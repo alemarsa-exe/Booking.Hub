@@ -16,14 +16,16 @@ const Contact = () => {
 
 		emailjs
 			.sendForm(
-				"YOUR_SERVICE_ID",
-				"YOUR_TEMPLATE_ID",
+				"service_bqlf5vv",
+				"template_qhsdvft",
 				form.current,
-				"YOUR_PUBLIC_KEY"
+				"wuQg1bqHG5ppDrUGI"
 			)
 			.then(
 				(result) => {
 					console.log(result.text);
+					console.log("mensaje enviado");
+					e.target.reset();
 				},
 				(error) => {
 					console.log(error.text);

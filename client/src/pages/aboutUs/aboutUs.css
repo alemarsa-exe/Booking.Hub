@@ -1,0 +1,133 @@
+.fondo img{
+    display: block;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: auto;
+    height: auto;
+}
+
+.objetivo{
+    /*margin: 0 auto;*/
+    margin: 60px auto 90px;
+    max-width: 80vw;
+}
+
+.objetivo span{
+    font-size: 30px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+.objetivo h2{
+    width: 100%;
+    font-size: 30px;
+    color: #3062b3;
+    text-align: center;
+}
+
+.heading{
+    text-align: center;
+    color: #5077b2;
+    font-size: 30px;
+}
+
+.lineas{
+    max-width: 80vw;
+    text-align: center;
+    margin: 0px auto 90px;
+}
+
+.lineas .boxContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.lineas .boxContainer .box{
+    margin: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    background: #d3dff3;
+    padding: 1rem;
+    flex: 1 1 30rem;
+}
+
+.lineas .boxContainer-a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.lineas .boxContainer-a .box-a {
+    margin: 1rem;
+    text-align: left;
+    padding: 1rem;
+    flex: 1 1 30rem;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+
+/*----------------------*/
+.mision {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.mision .contactInfo {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mision .contactInfo .box2 {
+    position: relative;
+    padding: 20px 0px;
+    display: flex;
+    transform: translateY(-108px);
+    justify-content: right;
+}
+
+.mision .contactInfo .box2 .icon2 {
+    min-width: 60px;
+    height: 60px;
+    background: #5077b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    font-size: 22px;
+    margin-right: 20px;
+}
+
+.contactForm {
+    width: 40%;
+    padding: 40px;
+}
+
+.contactForm h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.nombre{
+    font-weight:800 ;
+    font-size: medium;
+}
+
+.puesto{
+    font-weight: 300;
+    font-size: medium;
+    color: #859dbb;
+}

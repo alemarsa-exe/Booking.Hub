@@ -66,7 +66,6 @@ const Header = ({ type }) => {
 								/>
 							</div>
 							<div className="headerSearchItem">
-								<FontAwesomeIcon icon={faSearch} className="headerIcon" />
 								<select
 									className="form-select"
 									value={categoria}
@@ -80,7 +79,6 @@ const Header = ({ type }) => {
 							</div>
 							<div className="headerSearchItem">
 								<FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
-								<span className="headerSearchText"></span>
 
 								<DatePicker
 									selected={startDate}
@@ -91,6 +89,8 @@ const Header = ({ type }) => {
 									dateFormat="MMMM d, yyyy h:mm aa"
 									className="date"
 								/>
+								<FontAwesomeIcon icon={faCalendarDays} className="headerIconBlank" />
+								<FontAwesomeIcon icon={faCalendarDays} className="headerIconBlank" />
 							</div>
 							<div className="headerSearchItem">
 								<button className="SearchBtn" onClick={handleSearch}>

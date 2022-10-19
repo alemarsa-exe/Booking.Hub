@@ -3,7 +3,7 @@ import "./Footer.css"
 const Footer = () => {
   return (
 		<div className="footer">
-			<h1>Hub de Ciberseguridad por Tec de Monterrey</h1>
+			<h1>Nuestros socios estratégicos</h1>
 			<div className="fLists">
 				<ul className="fList">
 					<li className="fListItem">
