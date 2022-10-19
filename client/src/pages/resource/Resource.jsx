@@ -1,12 +1,13 @@
-import "./Resource.css";
-import NavBar from "../../components/navbar/Nabvar.jsx";
-import Header from "../../components/header/Header.jsx";
+import { useContext, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../../components/footer/Footer.jsx";
-import useFetch from "../../hooks/useFecth";
-import { useLocation } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import Header from "../../components/header/Header.jsx";
+import NavBar from "../../components/navbar/Nabvar.jsx";
+import Reserve from "../../components/reserve/Reserve.jsx";
+import { AuthContext } from "../../context/AuthContext";
 import { SearchContext } from "../../context/SearchContext";
-import axios from "axios";
+import useFetch from "../../hooks/useFecth";
+import "./Resource.css";
 
 const Resource = () => {
 	const photos = [
@@ -29,11 +30,25 @@ const Resource = () => {
 	const find = cat.concat("/find/");
 	const newUrl = find.concat(id).toString();
 
-	console.log(newUrl);
 
 	const { data, loading, error } = useFetch(newUrl);
+	console.log("data");
 	console.log(data);
 
+	// User verification
+	const { email } = useContext(AuthContext)
+	const navigate = useNavigate()
+	const [openModal, setOpenModal] = useState(false)
+
+	const handleClick = () => {
+		if(email){
+			setOpenModal(true)
+		}else{
+			navigate("/login")
+		}
+	}
+	console.log("user")
+	console.log(email)
 	return (
 		<div>
 			<NavBar />
@@ -59,7 +74,7 @@ const Resource = () => {
 								<h1>¿Quieres reservar este espacio?</h1>
 								<span>Se localiza en Aulas -999</span>
 								<h2>60 minutos</h2>
-								<button>¡Agenda ahora!</button>
+								<button onClick={handleClick}>¡Agenda ahora!</button>
 							</div>
 						</div>
 					</div>
@@ -85,7 +100,7 @@ const Resource = () => {
 								<h1>¿Quieres obtener este programa?</h1>
 								<span>Puedes usarlo hasta:</span>
 								<h2>{data.expireDate} días</h2>
-								<button>¡Agenda ahora!</button>
+								<button onClick={handleClick}>¡Agenda ahora!</button>
 							</div>
 						</div>
 					</div>
@@ -114,7 +129,7 @@ const Resource = () => {
 							<div className="resourceDetailPrice">
 								<h1>Puedes encontrar el equipo en el salón:</h1>
 								<h2>{data.location}</h2>
-								<button>¡Agenda ahora!</button>
+								<button onClick={handleClick}>¡Agenda ahora!</button>
 							</div>
 						</div>
 					</div>
@@ -141,11 +156,18 @@ const Resource = () => {
 								<h1>¿Quieres obtener este programa?</h1>
 								<span>Puedes usarlo hasta:</span>
 								<h2>{data.expireDate} días</h2>
-								<button>¡Agenda ahora!</button>
+								<button onClick={handleClick}>¡Agenda ahora!</button>
 							</div>
 						</div>
 					</div>
 				)}
+				{data.length === 0 && (
+					<div className="resourceWrapper">
+						<h1 className="rosourceTitle">Lo sentimos, no encontramos lo que estás buscando</h1>
+					</div>
+				)}
+
+				{openModal && <Reserve setOpen={setOpenModal} resourceId={id} />}
 
 				<Footer />
 			</div>

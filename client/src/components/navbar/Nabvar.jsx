@@ -28,14 +28,18 @@ const Navbar = () => {
 							<button className="navButton">CONTÁCTANOS</button>
 						</Link>
 
-						{email ? email.email : (
-							<div className="navItems" style={{"display":"flex"}}> 
+						{email ? (
+							<Link to="/">
+								<button className="navButton">{email.name}</button>
+							</Link>
+						) : (
+							<div className="navItems" style={{ display: "flex" }}>
 								<Link to="/register">
 									<button className="navButton">REGÍSTRATE</button>
 								</Link>
-                                <Link to="/login">
-								    <button className="navButton">INICIA SESIÓN</button>
-                                </Link>
+								<Link to="/login">
+									<button className="navButton">INICIA SESIÓN</button>
+								</Link>
 							</div>
 						)}
 					</div>
