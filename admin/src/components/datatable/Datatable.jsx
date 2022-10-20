@@ -32,9 +32,6 @@ const Datatable = ({columns}) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/edit" style={{ textDecoration: "none" }}>
-              <div className="viewButton">Edit</div>
-            </Link>
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row._id)}
