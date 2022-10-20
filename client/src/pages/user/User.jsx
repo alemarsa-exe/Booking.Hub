@@ -1,5 +1,6 @@
-import MailIcon from "@mui/icons-material/Mail";
-import PhoneIcon from "@mui/icons-material/Phone";
+import DoneAllIcon from "@mui/icons-material/DoneAll";
+import NumbersIcon from "@mui/icons-material/Numbers";
+import ClearIcon from "@mui/icons-material/Clear";
 import axios from "axios";
 import React, { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -33,14 +34,13 @@ const User = () => {
 		}
 	};
 
-
-    const navigate = useNavigate()
+	const navigate = useNavigate();
 	const handleDelete = async () => {
 		try {
 			const response = await axios.delete(`/users/${email._id}`, credential);
 			console.log("response");
 			console.log(JSON.stringify(response));
-            navigate("/login")
+			navigate("/login");
 		} catch (err) {
 			console.log(err);
 		}
@@ -57,7 +57,7 @@ const User = () => {
 				<div className="contactInfo">
 					<div className="box">
 						<div className="icon">
-							<PhoneIcon />
+							<NumbersIcon />
 						</div>
 						<div className="text">
 							<h3>Número de reservaciones</h3>
@@ -66,7 +66,7 @@ const User = () => {
 					</div>
 					<div className="box">
 						<div className="icon">
-							<MailIcon />
+							<DoneAllIcon />
 						</div>
 						<div className="text">
 							<h3>Reservaciones completadas</h3>
@@ -75,7 +75,7 @@ const User = () => {
 					</div>
 					<div className="box">
 						<div className="icon">
-							<MailIcon />
+							<ClearIcon />
 						</div>
 						<div className="text">
 							<h3>Reservaciones canceladas</h3>

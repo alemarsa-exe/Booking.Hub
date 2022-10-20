@@ -9,12 +9,14 @@ import { SearchContext } from "../../context/SearchContext";
 import useFetch from "../../hooks/useFecth";
 import "./Resource.css";
 
-const Resource = () => {
+const Resource = (startDate) => {
 	const photos = [
 		{
 			src: "https://logosmarcas.net/wp-content/uploads/2020/12/MATLAB-Logo.png",
 		},
 	];
+
+	
 
 	const location = useLocation();
 	const locationString = location.pathname.toString();
@@ -47,8 +49,11 @@ const Resource = () => {
 			navigate("/login")
 		}
 	}
-	console.log("user")
-	console.log(email)
+	
+	//Fecha
+	console.log("startDate de recurso");
+	console.log(location.state);
+
 	return (
 		<div>
 			<NavBar />
@@ -161,15 +166,15 @@ const Resource = () => {
 						</div>
 					</div>
 				)}
-				{data.length === 0 && (
+				{data.length === 0 || !data && (
 					<div className="resourceWrapper">
 						<h1 className="rosourceTitle">Lo sentimos, no encontramos lo que estás buscando</h1>
 					</div>
 				)}
 
-				{openModal && <Reserve setOpen={setOpenModal} resourceId={id} />}
+				{openModal && <Reserve setOpen={setOpenModal} resourceId={id} data={data} categoria={categoria} />}
 
-				<Footer />
+			
 			</div>
 		</div>
 	);

@@ -33,6 +33,8 @@ const List = () => {
     const handleSelect = (e) => {
 		setCategoria(e.target.value)
 	}
+
+    console.log(startDate)
     
 
     return (
@@ -79,7 +81,7 @@ const List = () => {
                     <div className="listResult">
                         {loading ? "loading" : <>
                         {data.map(item=>(
-                            <SearchItem categoria = {categoria} item={item} key={item._id}/>
+                            <SearchItem categoria = {categoria} item={item} startDate={startDate} key={item._id}/>
                         ))}
                         </>}
                     </div>

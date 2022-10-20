@@ -2,12 +2,18 @@ import { useState } from "react";
 import { Link, Navigate, useLocation } from "react-router-dom";
 import "./SearchItem.css";
 
-const SearchItem = ({ categoria, item }) => {
+const SearchItem = ({ categoria, item, startDate }) => {
 	const location = useLocation();
 
 	// console.log("location")
 	// console.log(location)
 	// const [categoria, setCategoria] = useState(location.state.categoria);
+	console.log("startDate de searchItem")
+	console.log(startDate)
+
+	const handleDate = ()=>{
+		localStorage.setItem("date", JSON.stringify(startDate));
+	}
 
 	return (
 		<div className="searchItem">
@@ -20,8 +26,9 @@ const SearchItem = ({ categoria, item }) => {
 				<div className="siDetailText">
 					<Link
 						to={{
-							pathname: `/resources/${categoria}/${item._id}`
+							pathname: `/resources/${categoria}/${item._id}`,
 						}}
+						onClick={handleDate}
 					>
 						<button className="siCheckButton">Ver disponibilidad</button>
 					</Link>

@@ -7,7 +7,7 @@ import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { setHours, setMinutes } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -34,6 +34,8 @@ const Header = ({ type }) => {
 		setCategoria(e.target.value);
 	};
 
+
+	console.log(startDate)
 	return (
 		<div className="header">
 			<div
@@ -53,7 +55,13 @@ const Header = ({ type }) => {
 								Para reservar recursos, debes iniciar sesión
 							</p>
 						)}
-						{!email && <button className="headerBtn">Iniciar Sesión</button>}
+						{!email && (
+							<div>
+								<Link to="/login">
+									<button className="headerBtn">Iniciar Sesión</button>
+								</Link>
+							</div>
+						)}
 
 						<div className="headerSearch">
 							<div className="headerSearchItem">
@@ -89,8 +97,14 @@ const Header = ({ type }) => {
 									dateFormat="MMMM d, yyyy h:mm aa"
 									className="date"
 								/>
-								<FontAwesomeIcon icon={faCalendarDays} className="headerIconBlank" />
-								<FontAwesomeIcon icon={faCalendarDays} className="headerIconBlank" />
+								<FontAwesomeIcon
+									icon={faCalendarDays}
+									className="headerIconBlank"
+								/>
+								<FontAwesomeIcon
+									icon={faCalendarDays}
+									className="headerIconBlank"
+								/>
 							</div>
 							<div className="headerSearchItem">
 								<button className="SearchBtn" onClick={handleSearch}>
