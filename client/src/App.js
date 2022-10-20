@@ -10,6 +10,7 @@ import Login from "./pages/login/Login.jsx";
 import Register from "./pages/register/Register.jsx";
 import Contact from "./pages/contact/Contact.jsx";
 import AboutUs from "./pages/aboutUs/AboutUs.jsx";
+import User from "./pages/user/User.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/about-us" element={<AboutUs/>}/>
+        <Route path="/user" element={<User/>}/>
       </Routes>
     </BrowserRouter>
   );

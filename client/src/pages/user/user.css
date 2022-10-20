@@ -1,0 +1,33 @@
+.bienvenida{
+    min-height: 50px;
+    background: #5077b2;
+    max-width: 80vw;
+    margin: auto
+}
+
+.bienvenida h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #f1f1f1;
+}
+
+.bienvenida p {
+    text-align: center;
+    color:transparent
+}
+
+.despedida {
+    min-height: 70px;
+}
+
+.despedida p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: black;
+}
+
+.remove{
+    margin-left: 10px;
+}

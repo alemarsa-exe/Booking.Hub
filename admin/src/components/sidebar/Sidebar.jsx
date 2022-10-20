@@ -17,11 +17,13 @@ import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 
 const Sidebar = () => {
-  const { dispatch } = useContext(DarkModeContext);
+	const { dispatch } = useContext(DarkModeContext);
 
+	const handleLogout = () => {
+		localStorage.removeItem("email");
+	};
 
-
-  return (
+	return (
 		<div className="sidebar">
 			<div className="top">
 				<Link to="/" style={{ textDecoration: "none" }}>
@@ -31,7 +33,6 @@ const Sidebar = () => {
 			<hr />
 			<div className="center">
 				<ul>
-					
 					<p className="title">LISTS</p>
 					<Link to="/users" style={{ textDecoration: "none" }}>
 						<li>
@@ -74,9 +75,11 @@ const Sidebar = () => {
 						<AccountCircleOutlinedIcon className="icon" />
 						<span>Profile</span>
   					</li>*/}
-					<li>
-						<ExitToAppIcon className="icon" />
-						<span>Logout</span>
+					<li onClick={handleLogout}>
+						<Link to="/login" style={{ textDecoration: "none" }}>
+							<ExitToAppIcon className="icon" />
+							<span>Logout</span>
+						</Link>
 					</li>
 				</ul>
 			</div>

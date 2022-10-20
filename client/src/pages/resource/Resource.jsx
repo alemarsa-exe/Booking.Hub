@@ -60,7 +60,7 @@ const Resource = () => {
 						<div className="resourceImages">
 							{photos.map((photo) => (
 								<div className="resourceImgWrapper">
-									<img src={data.images} alt="foto" className="resourceImg" />
+									<img src={data.imagesv2} alt="foto" className="resourceImg" />
 								</div>
 							))}
 						</div>
@@ -72,8 +72,8 @@ const Resource = () => {
 							</div>
 							<div className="resourceDetailPrice">
 								<h1>¿Quieres reservar este espacio?</h1>
-								<span>Se localiza en Aulas -999</span>
-								<h2>60 minutos</h2>
+								<span>Se localiza en Aulas</span>
+								<h2>{data.location}</h2>
 								<button onClick={handleClick}>¡Agenda ahora!</button>
 							</div>
 						</div>
@@ -86,7 +86,7 @@ const Resource = () => {
 						<div className="resourceImages">
 							{photos.map((photo) => (
 								<div className="resourceImgWrapper">
-									<img src={data.images} alt="foto" className="resourceImg" />
+									<img src={data.imagesv2} alt="foto" className="resourceImg" />
 								</div>
 							))}
 						</div>
@@ -112,7 +112,7 @@ const Resource = () => {
 						<div className="resourceImages">
 							{photos.map((photo) => (
 								<div className="resourceImgWrapper">
-									<img src={data.images} alt="foto" className="resourceImg" />
+									<img src={data.imagesv2} alt="foto" className="resourceImg" />
 								</div>
 							))}
 						</div>
@@ -141,7 +141,7 @@ const Resource = () => {
 						<div className="resourceImages">
 							{photos.map((photo) => (
 								<div className="resourceImgWrapper">
-									<img src={data.images} alt="foto" className="resourceImg" />
+									<img src={data.imagesv2} alt="foto" className="resourceImg" />
 								</div>
 							))}
 						</div>

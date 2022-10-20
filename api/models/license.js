@@ -1,38 +1,42 @@
 import mongoose from "mongoose";
 
 const licenceSchema = new mongoose.Schema({
+	resID: {
+		type: Number,
+	},
 
-    resID: {
-        type: Number
-    },
+	name: {
+		type: String,
+		required: true,
+		unique: true,
+	},
 
-    name: {
-        type: String,
-        required: true,
-        unique: true
-    },
+	description: {
+		type: String,
+		required: true,
+	},
 
-    description: {
-        type: String,
-        required: true
-    },
+	version: {
+		type: String,
+		required: true,
+	},
 
-    version: {
-        type: String,
-        required: true
-    },
-    
-    expireDate: {
-        type: Number,
-        required: true
-    },
+	expireDate: {
+		type: Number,
+		required: true,
+	},
 
-    images: {
-        type: String,
-        required: true
-    }//,
+	images: {
+		type: String,
+		required: true,
+	},
 
-    //unavailableDates: [{ type: Date }]
+	imagesv2: {
+		type: String,
+		required: false,
+	},
+
+	//unavailableDates: [{ type: Date }]
 });
 
 //export default mongoose.model("Device", deviceSchema)
