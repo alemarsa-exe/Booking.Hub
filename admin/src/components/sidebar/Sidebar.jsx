@@ -64,11 +64,6 @@ const Sidebar = () => {
 							<span>Reservation</span>
 						</li>
 					</Link>
-					<p className="title">USEFUL</p>
-					<li>
-						<InsertChartIcon className="icon" />
-						<span>Stats</span>
-					</li>
 
 					<p className="title">USER</p>
 					{/*<li>
